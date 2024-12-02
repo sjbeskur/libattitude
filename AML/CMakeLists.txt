@@ -9,10 +9,12 @@ set(SRC_CPP_AML
     vector3.h
     matrix3.h
     dcm.h 
+    euler.h
     AML.cpp
     vector3.cpp
     matrix3.cpp
     dcm.cpp
+    euler.cpp
 )
 
 add_library(
