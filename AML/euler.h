@@ -26,7 +26,9 @@ namespace AML{
                 YXZ
             };
 
-            double phi, theta, psi,
+            double phi;
+            double theta; 
+            double psi;
 
             // Constructors
             EulerAngles();
@@ -103,6 +105,7 @@ namespace AML{
     
     // Euler Angle Interpolation
     EulerAngles interpolation(const EulerAngles& startAngles, const EulerAngles& endAngles, double t);
+    EulerAngles smoothInterpolate(const EulerAngles& startAngles, const EulerAngles& endAngles, double t);
 
 };
 

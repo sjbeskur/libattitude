@@ -6,6 +6,8 @@
 using namespace AML;
 using namespace std;
 
+void euler_example();
+
 int main(int argc, char **argv)
 {
     Matrix3x3 R = Matrix3x3::identity();
@@ -17,7 +19,21 @@ int main(int argc, char **argv)
         std::cout << "R: " << R << std::endl;
     }
 
+    std::cout << "running euler example" << std::endl;
+    euler_example();
+
     return 0;
+}
+void euler_example(){
+    EulerAngles angles(0.1, -0.3, -0.5);
+    Matrix3x3 dcm = Euler2DCM(angles);
+
+    std::cout << angles << std::endl;
+    std::cout << dcm << std::endl;
+
+    EulerAngles recovered = DCM2Euler(dcm);
+    std::cout << recovered << std::endl;
+
 }
 
 void matrix_example()
