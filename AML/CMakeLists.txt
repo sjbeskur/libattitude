@@ -15,6 +15,8 @@ set(SRC_CPP_AML
     matrix3.cpp
     dcm.cpp
     euler.cpp
+    quaternion.h
+    quaternion.cpp
 )
 
 add_library(
