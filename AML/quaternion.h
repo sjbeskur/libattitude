@@ -98,21 +98,21 @@ Quaternion eulerAngles2Quat_YZX(double phi, double theta, double psi);
 Quaternion eulerAngles2Quat_ZXY(double phi, double theta, double psi);
 Quaternion eulerAngles2Quat_XZY(double phi, double theta, double psi);
 Quaternion eulerAngles2Quat_ZYX(double phi, double theta, double psi);
-Quaternion eulerAngles2Quat_XZY(double phi, double theta, double psi);
+Quaternion eulerAngles2Quat_YXZ(double phi, double theta, double psi);
 
 // Quaternion to Euler 
-EulerAngles quat2EulerAngles(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_XYX(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_YZY(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_ZYZ(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_XZX(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_YXY(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_XYZ(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_YZX(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_ZXY(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_XZY(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_ZYX(double phi, double theta, double psi);
-EulerAngles quat2EulerAngles_XZY(double phi, double theta, double psi);
+EulerAngles quat2EulerAngles_ZXZ(const Quaternion& quat);
+EulerAngles quat2EulerAngles_XYX(const Quaternion& quat);
+EulerAngles quat2EulerAngles_YZY(const Quaternion& quat);
+EulerAngles quat2EulerAngles_ZYZ(const Quaternion& quat);
+EulerAngles quat2EulerAngles_XZX(const Quaternion& quat);
+EulerAngles quat2EulerAngles_YXY(const Quaternion& quat);
+EulerAngles quat2EulerAngles_XYZ(const Quaternion& quat);
+EulerAngles quat2EulerAngles_YZX(const Quaternion& quat);
+EulerAngles quat2EulerAngles_ZXY(const Quaternion& quat);
+EulerAngles quat2EulerAngles_XZY(const Quaternion& quat);
+EulerAngles quat2EulerAngles_ZYX(const Quaternion& quat);
+EulerAngles quat2EulerAngles_YXZ(const Quaternion& quat);
 
 // Quaternion Kinematic Functions
 Quaternion integrateQuat(const Quaternion& quat, const Quaternion& quatRates, double dt);
