@@ -336,4 +336,41 @@ namespace AML
         return EulerAngles();
     }
 
-}
+
+
+    Quaternion eulerAngles2Quat_ZXZ(double phi, double theta, double psi){
+        const double c1 = cos(0.5 * phi);
+        const double s1 = sin(0.5 * phi);
+        const double c2 = cos(0.5 * theta);
+        const double s2 = sin(0.5 * theta);
+        const double c3 = cos(0.5 * psi);
+        const double s3 = sin(0.5 * psi);
+        
+        const double q0 = c1*c1*c3 - s1*c2*s3;
+        const double q1 = c1*c1*s3 - s1*s2*s3;
+        const double q2 = c1*s2*s3 - s1*c2*s3;
+        const double q3 = c1*c2*s3 - c1*c2*s3;
+        return Quaternion(q0, q1,q2, q3);
+    }
+
+
+    Quaternion eulerAngles2Quat_XYX(double phi, double theta, double psi){
+
+    }
+
+    Quaternion eulerAngles2Quat_YZY(double phi, double theta, double psi){
+
+    }
+
+    Quaternion eulerAngles2Quat_ZYZ(double phi, double theta, double psi){
+
+    }
+    
+    Quaternion eulerAngles2Quat_XZX(double phi, double theta, double psi);
+    Quaternion eulerAngles2Quat_YXY(double phi, double theta, double psi);
+    Quaternion eulerAngles2Quat_XYZ(double phi, double theta, double psi);
+    Quaternion eulerAngles2Quat_YZX(double phi, double theta, double psi);
+    Quaternion eulerAngles2Quat_ZXY(double phi, double theta, double psi);
+    Quaternion eulerAngles2Quat_XZY(double phi, double theta, double psi);
+    Quaternion eulerAngles2Quat_ZYX(double phi, double theta, double psi);
+    Quaternion eulerAngles2Quat_YXZ(double phi, double theta, double psi);
