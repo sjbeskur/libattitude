@@ -790,16 +790,43 @@ namespace AML
 
     // Quaternion Interpolation
     Quaternion linearInterpolate(const Quaternion& startQuat, const Quaternion& endQuat, double t ){
+        Quaternion q0 = unit(startQuat);
+        Quaternion q1 = unit(endQuat);
+        
+        if ( t < 0.0 ) { return q0; }
+        if ( t > 1.0 ) { return q1; }
 
+        double a = (1.0 - t);
+        double b = t;
+
+        Quaternion qi = unit(a * q0 + b * q1);
+        return qi;
     }
 
     Quaternion slerpInterpolate(const Quaternion& startQuat, const Quaternion& endQuat, double t ){
+        Quaternion q0 = unit(startQuat);
+        Quaternion q1 = unit(endQuat);
+        
+        if ( t < 0.0 ) { return q0; }
+        if ( t > 1.0 ) { return q1; }
 
+        double quatDot = dot(q0, q1);
+        if( quatDot < 0.0 ){
+            q1 = -q1;
+            quatDot = -quatDot;
+        }
+
+        double theta = acos(quatDot);
+        if( theta < 0.0001 ){
+            return linearInterpolate(startQuat, endQuat,t );
+        }
+
+        // SLERP
+        double a = sin((1.0 - t) * theta) / sin(theta);
+        double b = sin(t * theta) / sin(theta);
+        Quaternion qi = unit(a * q0 + b * q1);
+        return qi;
     }
-
-
-    // Stream Functions
-    std::ostream& operator<<(std::ostream& os, const Quaternion& obj);
 
 
 }
