@@ -117,7 +117,7 @@ EulerAngles quat2EulerAngles_YXZ(const Quaternion& quat);
 // Quaternion Kinematic Functions
 Quaternion integrateQuat(const Quaternion& quat, const Quaternion& quatRates, double dt);
 Quaternion quatKinematicRates_BodyRates(const Quaternion& quat, const Vector3& bodyRates);
-Quaternion quatKinematicRates_WorldRates(const Quaternion& quat, const Vector3& bodyRates);
+Quaternion quatKinematicRates_WorldRates(const Quaternion& quat, const Vector3& worldRates);
 
 // Quaternion Interpolation
 Quaternion linearInterpolate(const Quaternion& startQuat, const Quaternion& endQuat, double t );

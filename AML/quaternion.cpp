@@ -777,8 +777,15 @@ namespace AML
         return Quaternion(q0, q1, q2, q3);
     }
 
-    Quaternion quatKinematicRates_WorldRates(const Quaternion& quat, const Vector3& bodyRates){
-
+    Quaternion quatKinematicRates_WorldRates(const Quaternion& quat, const Vector3& worldRates){
+        double p = worldRates.x;
+        double q = worldRates.y;
+        double r = worldRates.z;
+        double q0 = 0.5 * (-quat.q1 * p - quat.q2 * q - quat.q3 * r);
+        double q1 = 0.5 * ( quat.q0 * p - quat.q3 * q + quat.q2 * r);
+        double q2 = 0.5 * ( quat.q3 * p + quat.q0 * q - quat.q1 * r);
+        double q3 = 0.5 * (-quat.q2 * p + quat.q1 * q + quat.q0 * r);
+        return Quaternion(q0, q1, q2, q3);        
     }
 
     // Quaternion Interpolation
