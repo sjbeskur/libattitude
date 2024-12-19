@@ -756,4 +756,43 @@ namespace AML
         const double psi   = atan2(-m21, m22);
         return EulerAngles(phi, theta, psi, EulerAngles::EulerSequence::YXZ);
     }
+
+
+    // Quaternion Kinematic Functions
+    Quaternion integrateQuat(const Quaternion& quat, const Quaternion& quatRates, double dt){
+        Quaternion retval = quat + quatRates * dt;
+        normalize(retval);
+        return retval;
+    }
+
+
+    Quaternion quatKinematicRates_BodyRates(const Quaternion& quat, const Vector3& bodyRates){
+        double p = bodyRates.x;
+        double q = bodyRates.y;
+        double r = bodyRates.z;
+        double q0 = 0.5 * (-quat.q1 * p - quat.q2 * q - quat.q3 * r);
+        double q1 = 0.5 * ( quat.q0 * p + quat.q3 * q - quat.q2 * r);
+        double q2 = 0.5 * (-quat.q3 * p + quat.q0 * q + quat.q1 * r);
+        double q3 = 0.5 * ( quat.q2 * p - quat.q1 * q + quat.q0 * r);
+        return Quaternion(q0, q1, q2, q3);
+    }
+
+    Quaternion quatKinematicRates_WorldRates(const Quaternion& quat, const Vector3& bodyRates){
+
+    }
+
+    // Quaternion Interpolation
+    Quaternion linearInterpolate(const Quaternion& startQuat, const Quaternion& endQuat, double t ){
+
+    }
+
+    Quaternion slerpInterpolate(const Quaternion& startQuat, const Quaternion& endQuat, double t ){
+
+    }
+
+
+    // Stream Functions
+    std::ostream& operator<<(std::ostream& os, const Quaternion& obj);
+
+
 }
