@@ -104,7 +104,7 @@ namespace AML{
     Matrix3x3 eulerAngleRatesMatrix_YXZ(double phi, double theta, double psi);
     
     // Euler Angle Interpolation
-    EulerAngles interpolation(const EulerAngles& startAngles, const EulerAngles& endAngles, double t);
+    EulerAngles linearInterpolate(const EulerAngles& startAngles, const EulerAngles& endAngles, double t);
     EulerAngles smoothInterpolate(const EulerAngles& startAngles, const EulerAngles& endAngles, double t);
 
 };
