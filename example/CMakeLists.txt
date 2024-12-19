@@ -15,3 +15,13 @@ install(
     TARGETS ${PROJECT_NAME}
     DESTINATION ${CMAKE_BINARY_DIR}/bin
 )
+
+## 
+add_executable(QuatExample
+    quaternion_example.cpp
+)
+
+target_link_libraries(
+    QuatExample
+    AML
+)

@@ -8,9 +8,9 @@
 #include "matrix3.h"
 #include "dcm.h"
 
-class Vector3;
-class EulerAngles;
-class DCM;
+// class Vector3;
+// class EulerAngles;
+// class DCM;
 
 namespace AML
 {
