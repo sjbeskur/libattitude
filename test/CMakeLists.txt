@@ -8,6 +8,7 @@ add_executable(${PROJECT_NAME}
     matrix3_test.cpp
     dcm_test.cpp
     euler_test.cpp
+    quat_test.cpp
 )
 
 target_link_libraries(
